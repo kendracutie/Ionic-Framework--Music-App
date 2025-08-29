@@ -1,0 +1,76 @@
+   <br><br><br>
+   <ion-content>
+      <div class="search-bar">
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            <ion-searchbar placeholder="Find in playlists"></ion-searchbar>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button color="light">
+              Filters
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+     <ion-list>
+  <!-- Header with buttons -->
+  <ion-item lines="none">
+    <ion-button shape="round" (click)="openPlaylistAlert()">
+      <ion-icon name="add-outline"></ion-icon>Create
+    </ion-button>
+
+    <ion-button shape="round" slot="end" *ngIf="isMainEditMode" alt="Delete all" (click)="toggleEditMode()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+    <ion-list slot="end" *ngIf="isEditMode" >
+      <ion-item lines="none">
+      <ion-button shape="round" (click)="deleteSelectedPlaylists()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+      <ion-button shape="round" (click)="selectAllPlaylists()">All
+      </ion-button>
+      <ion-button shape="round" (click)="toggleEditMode()">Cancel</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-item>
+
+  <!-- Playlists -->
+  <ion-item-sliding *ngFor="let playlist of playlists; let i = index">
+    <ion-item>
+      <ion-checkbox slot="start" *ngIf="isEditMode" [(ngModel)]="playlist.selected"></ion-checkbox>
+      <ion-thumbnail slot="start">
+        <img src="assets/album-cover/all.jpg" alt="">
+      </ion-thumbnail>
+      <ion-label>
+        <ng-container *ngIf="!playlist.editMode; else editModeTemplate">
+          <h2><strong>{{ playlist.name }}</strong></h2>
+        </ng-container>
+        <ng-template #editModeTemplate>
+          <ion-input [(ngModel)]="playlist.name"></ion-input>
+        </ng-template>
+        <p>
+          <ion-icon name="shuffle-outline"></ion-icon> by yours
+        </p>
+      </ion-label>
+      <ion-button slot="end" *ngIf="playlist.editMode" (click)="savePlaylistName(i)">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <!-- Menu with Edit and Delete options -->
+      <ion-item-option *ngIf="!playlist.editMode && !isEditMode" (click)="editPlaylistName(i)">
+        <ion-icon name="create-outline"></ion-icon>Edit
+      </ion-item-option>
+      <ion-item-option *ngIf="!playlist.editMode && !isEditMode" (click)="openDeletePlaylistAlert(i)">
+        <ion-icon name="trash-outline"></ion-icon>Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+   </ion-content>      
+
+    

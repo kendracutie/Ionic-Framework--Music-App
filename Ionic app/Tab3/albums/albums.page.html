@@ -1,0 +1,31 @@
+<br><br><br>
+  <ion-content>
+    <div class="search-bar">
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-searchbar placeholder="Find in albums"></ion-searchbar>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button color="light">
+            Filters
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-list>
+      <ion-item lines="none" *ngFor="let item of items">
+        <ion-thumbnail slot="start">
+          <img [src]="'assets/album-cover/' + item.cover">
+        </ion-thumbnail>
+        <ion-label>
+          <h2><strong>Album: {{item.title}}</strong></h2>
+          <p>
+            <ion-icon name="shuffle-outline"></ion-icon>
+            by Spotify
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+

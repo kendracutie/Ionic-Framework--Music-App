@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Select tracks
+    </ion-title>
+    <ion-buttons slot="end">
+      <div *ngIf="atLeastOneItemSelected()">
+        <!-- Your "Done" button or any other action button -->
+        <ion-button shape="round" class="button" (click)="onDone()">Done</ion-button>
+      </div>
+    </ion-buttons>
+    <ion-buttons class="ion-padding" slot="start">
+      <ion-checkbox [(ngModel)]="selectAllCheckbox" (ionChange)="selectAll()"></ion-checkbox>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    
+    <ion-item routerLink="playlist" *ngFor="let item of items">
+      <ion-checkbox slot="start" [(ngModel)]="item.isSelected"></ion-checkbox>
+      <ion-thumbnail class="ion-padding">
+        <img [src]="'assets/album-cover/' + item.cover">
+      </ion-thumbnail>
+      <ion-label>{{ item.title }}<p class="subtitle">{{item.artist}}</p></ion-label>
+      
+    </ion-item>
+  </ion-list>
+  
+  
+
+</ion-content>

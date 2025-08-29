@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title size="large">
+      <span class="subtab-button active">Music</span>
+      <span class="subtab-button">Postcasts</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- Playlists Tab -->
+
+ 
+    <ion-router-outlet></ion-router-outlet>
+  <ion-list>
+  <ion-button (click)="activatePlaylists()" [class.activated-button]="isPlaylistsActivated" routerLink="playlists">Playlists</ion-button>
+  <ion-button (click)="activateArtists()" [class.activated-button]="isArtistsActivated" routerLink="artists">Artists</ion-button>
+  <ion-button (click)="activateAlbums()" [class.activated-button]="isAlbumsActivated" routerLink="albums">Albums</ion-button>  
+</ion-list>
+</ion-content>
+

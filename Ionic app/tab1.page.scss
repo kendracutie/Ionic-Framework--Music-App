@@ -1,0 +1,48 @@
+ion-header ion-toolbar {
+    --background: var(--ion-background-color);
+  }
+
+
+  
+  .collection {
+    margin-bottom: 16px;
+  
+    .scroll-horizontal {
+      padding: 0 16px;
+      display: flex;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  
+    .collection-title {
+      font-size: 22px;
+      font-weight: 700;
+      padding: 8px 16px 16px;
+    }
+  
+    .media-card {
+      background-color: var(--ion-color-light);
+      border-radius: 4px;
+      font-size: 13px;
+      width: 180px;
+      height: 48px;
+    }
+  
+    .scroll-item {
+      flex: 0 0 auto;
+      margin-right: 16px;
+      &.size-sm {
+        width: 120px;
+      }
+  
+      &.size-md {
+        width: 200px;
+      }
+    }
+  
+    .item-title {
+      padding: 8px 0;
+      font-size: 13px;
+      white-space: break-spaces;
+    }
+  }

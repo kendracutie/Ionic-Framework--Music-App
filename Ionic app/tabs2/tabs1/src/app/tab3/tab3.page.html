@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title size="large">
+      <span class="subtab-button active">Music</span>
+      <span class="subtab-button">Postcasts</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Ionic Tabs -->
+  <ion-tabs>
+
+    <!-- Playlists Tab -->
+    <ion-tab-bar slot="top" class="ion-align-items-left">
+      <ion-tab-button tab="playlists">
+        <ion-icon name="musical-notes"></ion-icon>
+        <ion-label>Playlists</ion-label>
+      </ion-tab-button>
+
+      <!-- Artists Tab -->
+      <ion-tab-button tab="artists">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Artists</ion-label>
+      </ion-tab-button>
+
+      <!-- Albums Tab -->
+      <ion-tab-button tab="albums">
+        <ion-icon name="disc"></ion-icon>
+        <ion-label>Albums</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>
